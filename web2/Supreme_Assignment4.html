@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Page</title>
+</head>
+<body>
+    <h1>Welcome to G8Signatures</h1>
+    <h3>Join us!</h3>
+
+    <form action=" " method="post">
+        <div>
+            <label for="FirstName">First Name:</label>
+            <input id="FirstName" type="text" placeholder="Supreme" required>
+            <label for="LastName">Last Name:</label>
+            <input id="LastName" type="text" placeholder="Oghenewoakpo" required>
+        </div>
+        
+        <div>
+            <label for="sex">Male</label>
+            <input name="SexOrientation" id="sex" type="radio" value="Male">
+            <label for="sex">Female</label>
+            <input name="SexOrientation" id="sex" type="radio" value="Female">
+            <label for="sex">Others</label>
+            <input name="SexOrientation" id="sex" type="radio" value="Others"> 
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input name="email" id="email" type="email" placeholder="your email address" required>
+            <label for="password">Password:</label>
+            <input name="password" id="password" type="password" placeholder="your password"
+            title="Must contain: 8+ characters, 1 number, 1 special symbol (!@#$%^&*)"
+            minlength="8" maxlength="30"
+            required>
+            <!-- pattern="^(?=.\d)(?=.[!@#$%^&*]).{8,}$" -->
+        </div>
+
+        <div>
+            <label for="day">Day:</label>
+            <select id="day" name="day" required>
+                <option value="dayofweek" selected disabled>Day</option>
+                <!-- Days 1-31 populated using JavaScript -->
+            </select>
+
+            <label for="month">Month:</label>
+            <select id="month" name="month" required>
+                <option value="MonthOfBirth" selected disabled>Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            <label for="year">Year:</label>
+            <select id="year" name="year" required>
+                <option value="YearOfBirth" selected disabled>Year</option>
+                <!-- Years from current year back to 1900
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for(let i = currentYear; i >= 1900; i--) {
+                        document.write(<option value="${i}">${i}</option>);
+                        }
+                </script> -->
+            </select>
+        </div>
+
+        <div>
+            <label for="terms&conditions">I agree to the <a href="">terms and conditions </a></label>
+            <input name="T&C" id="terms&conditions" type="checkbox" value="T&C" required> 
+        </div>
+        
+        <div>
+            <input type="Submit" value="Create Account">  
+        </div>
+        
+
+    </form>
+
+    <script>
+        // Populate day dropdown (1-31)
+        const daySelect = document.getElementById('day');
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
+        
+        // Populate year dropdown (current year to 1900)
+        const yearSelect = document.getElementById('year');
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1900; i--) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            yearSelect.appendChild(option);
+        }
+    </script>
+
+    
+</body>
+</html>
